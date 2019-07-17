@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 
 import com.gmail.justinxvopro.chestercinema.Loggable;
@@ -60,7 +59,7 @@ public class VideoManager {
     public static Optional<Video> getVideo(String name) {
 	LOGGER.info("comapre " + name);
         for (var video : videos) {
-            String title = FilenameUtils.getBaseName(video.getVideoFile().getAbsolutePath());
+            String title = video.getVideoFile().getName().split(".mp4")[0];
             LOGGER.info("title " + title);
             if (title.toLowerCase().equals(name.toLowerCase())) {
                 return Optional.of(video);
