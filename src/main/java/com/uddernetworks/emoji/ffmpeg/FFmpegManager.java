@@ -57,7 +57,7 @@ public class FFmpegManager {
     }
 
     public Map<String, String> getMetadata(File video) throws IOException {
-        String output = runCommand("ffprobe -hide_banner -show_format -i " + video.getAbsolutePath());
+        String output = runCommand("ffprobe -hide_banner -show_format -i \"" + video.getAbsolutePath()+"\"");
 
         if (!output.contains("[FORMAT]") || (!output.contains("[\\FORMAT]") && !output.contains("[/FORMAT]")))
             throw new IOException("Invalid video " + video.getAbsolutePath());
