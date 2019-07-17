@@ -48,7 +48,7 @@ public class MovieCommand implements Command, Loggable {
 		    var outDir = new File("videos");
 		    outDir.mkdirs();
 		    try {
-			YouTubeDL.download(Command.joinArguments(args), outDir.getAbsolutePath(), cleaned, (out) -> {
+			YouTubeDL.download(Command.joinArguments(args), outDir, cleaned, (out) -> {
 			    if (!out.isEmpty())
 				logger().info(out);
 			});
